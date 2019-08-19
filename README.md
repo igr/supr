@@ -1,2 +1,1 @@
-# supr
-SUPR.
+# [Supr](https://supr.life)

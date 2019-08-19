@@ -1,0 +1,68 @@
+@import "mixins";
+@import "normalize";
+
+@import url('https://fonts.googleapis.com/css?family=Ultra|Domine:400,700');
+$font2: "Domine";
+$font: "Ultra";
+
+$color-background: #ffdc00;
+$color-text: #111;
+
+html, body {
+  background-color: $color-background;
+  color: $color-text;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+main {
+  font-family: $font2, serif;
+  background-color: $color-background;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: 3rem;
+}
+h1 {
+  margin: 0;
+  font-size: 20vw;
+  font-weight: normal;
+  font-family: $font;
+  text-shadow: 10px 10px #fff;
+}
+
+.nonselect {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
+h1, .rotate {
+  transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  -moz-transform: rotate(-35deg);
+  -ms-transform: rotate(-35deg);
+  -o-transform: rotate(-35deg);
+}
+
+.section{
+  text-align:center;
+}
+div.section {
+  padding: 0 20%;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  a {
+    text-decoration: none;
+    color: $color-text;
+    padding: 4px;
+    font-size: 16px;
+  }
+}

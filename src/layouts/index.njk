@@ -1,0 +1,43 @@
+{% extends "base.njk" %}
+{% block main %}
+
+<div id="fullpage">
+	<div class="section"><h1>Supr.</h1></div>
+	<div class="section">
+		<p>
+			The pressure to appear flawless is driven by the fear of failure, but also our desire to be loved and admired.
+		</p>
+		<p>
+			Don't strive to be perfect. Don't be awesome. Forget about being super.
+		</p>
+	</div>
+
+	<div class="section">
+		<p>
+			You don't have to be perfect to be amazing.
+		</p>
+		<p>
+			Admit your flaws and mistakes. Be real. Be yourself.
+		</p>
+
+		<p>
+			Be <b>Supr</b>.
+		</p>
+	</div>
+</div>
+
+Why Supr?
+
+{% endblock %}
+{% block script %}
+<script>
+new fullpage('#fullpage', {
+	licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+	licenseKey: '0C39A97C-ABF04D7A-8564CE11-E3142A4B',
+	autoScrolling: true,
+	navigation: true,
+	navigationPosition: 'right',
+	verticalCentered: true
+});
+</script>
+{% endblock %}

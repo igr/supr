@@ -31,13 +31,15 @@ Why Supr?
 {% endblock %}
 {% block script %}
 <script>
-new fullpage('#fullpage', {
-	licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
-	licenseKey: '0C39A97C-ABF04D7A-8564CE11-E3142A4B',
-	autoScrolling: true,
-	navigation: true,
-	navigationPosition: 'right',
-	verticalCentered: true
+ready(() => {
+	new fullpage('#fullpage', {
+		licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
+		licenseKey: '0C39A97C-ABF04D7A-8564CE11-E3142A4B',
+		autoScrolling: true,
+		navigation: true,
+		navigationPosition: 'right',
+		verticalCentered: true
+	});
 });
 </script>
 {% endblock %}

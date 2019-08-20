@@ -63,8 +63,15 @@ footer {
     text-decoration: none;
     color: $color-text;
     padding: 4px;
-    font-size: 16px;
+    font-size: 18px;
   }
+}
+
+//#fp-nav ul li a span, .fp-slidesNav ul li a span{ background: #fff; }
+
+#fp-nav {
+  top: inherit;
+  bottom: 10px;
 }
 
 @media only screen and (max-width: 640px) {

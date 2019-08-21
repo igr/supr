@@ -3,25 +3,25 @@
 
 <div id="fullpage">
 	<div class="section"><h1>Supr.</h1></div>
-	<div class="section">
+	<div class="section" id="sp2">
 		<p>
-			The pressure to appear flawless is driven by the fear of failure, but also our desire to be loved and admired.
+			The pressur<span>e</span> to appear flawles<span>s</span> is driven by the fear of failur<span>e</span>, but also our desir<span>e</span> to be lov<span>e</span>d and admir<span>e</span>d.
 		</p>
 		<p>
-			Don't strive to be perfect. Don't be awesome. Forget about being super.
+			Don't strive to be perfec<span>t</span>. Don't be awesome. Forget about being super.
 		</p>
 	</div>
 
-	<div class="section">
+	<div class="section" id="sp3">
 		<p>
-			You don't have to be perfect to be amazing.
+			You don't have to be perfec<span>t</span> to be amazing.
 		</p>
 		<p>
-			Admit your flaws and mistakes. Be real. Be yourself.
+			Admit your flaw<span>s</span> and mistak<span>e</span>s. Be real. Be yours<span>e</span>lf.
 		</p>
 
 		<p>
-			Be <b>Supr</b>.
+			Be <b id="supr">Supr</b>.
 		</p>
 	</div>
 </div>
@@ -38,7 +38,32 @@ ready(() => {
 		autoScrolling: true,
 		navigation: true,
 		navigationPosition: 'right',
-		verticalCentered: true
+		verticalCentered: true,
+		anchors: ['', 'p2', 'p3'],
+		afterLoad: function(origin, destination, direction) {
+            const params = {
+                origin: origin,
+                destination: destination,
+                direction: direction
+            };
+            const target = '#s' + destination.anchor + ' span';
+            __(target).forEach(el => {
+//            	console.log(target);
+            	addClass(el, 'hidden');
+            	var fading = window.setInterval(() => {
+            		//console.log('DONE');
+            		__(target).forEach(el2 => {
+            			addClass(el2, 'none');
+            		});
+            		window.clearInterval(fading);
+            	}, 2000);
+            });
+            const previousTarget = '#s' + origin.anchor + ' span';
+			__(previousTarget).forEach(el => {
+				removeClass(el, 'hidden');
+				removeClass(el, 'none');
+			});
+        }
 	});
 });
 </script>

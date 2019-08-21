@@ -8,6 +8,11 @@ $font: "Ultra";
 $color-background: #ffdc00;
 $color-text: #111;
 
+b#supr {
+  font-family: $font, serif;
+  font-weight: normal;
+  text-shadow: 1px 1px #fff;
+}
 html, body {
   background-color: $color-background;
   color: $color-text;
@@ -73,6 +78,22 @@ footer {
   top: inherit;
   bottom: 10px;
 }
+
+span {
+  display: inline-block;
+  opacity: 100;
+  width: inherit;
+}
+
+span.hidden {
+  opacity: 0;
+  transition: 2s ease-in-out;
+  transform: scale(0.8);
+}
+span.none {
+  display: none;
+}
+
 
 @media only screen and (max-width: 640px) {
   main {

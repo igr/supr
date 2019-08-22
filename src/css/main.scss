@@ -83,12 +83,14 @@ span {
   display: inline-block;
   opacity: 100;
   width: inherit;
+  max-width: 100%;
 }
 
 span.hidden {
   opacity: 0;
   transition: 2s ease-in-out;
-  transform: scale(0.8);
+  transform: scale(2);
+  max-width: 0;
 }
 span.none {
   display: none;

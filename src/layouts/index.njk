@@ -2,8 +2,8 @@
 {% block main %}
 
 <div id="fullpage">
-	<div class="section"><h1>Supr.</h1></div>
-	<div class="section" id="sp2">
+	<div class="section" id="s1"><h1>Supr.</h1></div>
+	<div class="section" id="s2">
 		<p>
 			The pressur<span>e</span> to appear flawles<span>s</span> is driven by the fear of failur<span>e</span>, but also our desir<span>e</span> to be lov<span>e</span>d and admir<span>e</span>d.
 		</p>
@@ -12,7 +12,7 @@
 		</p>
 	</div>
 
-	<div class="section" id="sp3">
+	<div class="section" id="s3">
 		<p>
 			You don't have to be perfec<span>t</span> to be amazing.
 		</p>
@@ -26,11 +26,54 @@
 	</div>
 </div>
 
-Why Supr?
+<div id="footerSlideContainer">
+    <div id="footerSlideButton"><center>▲</center></div>
+	<div id="footerSlideContent">
+		<div id="footerSlideText" class="gallery">
+			<div>&nbsp;</div>
+			<a href="https://www.etsy.com/listing/737369051/suprmug" target="_blank"><img src="/supr-mug.jpg"></a>
+			<a href="https://www.etsy.com/listing/723535216/suprposter" target="_blank"><img src="/supr-poster.jpg"></a>
+			<a href="https://www.etsy.com/listing/723538434/suprbag" target="_blank"><img src="/supr-bag.jpg"></a>
+			<div>&nbsp;</div>
+		</div>
+	</div>
+</div>
+
 
 {% endblock %}
 {% block script %}
 <script>
+let popupHeight=260;
+
+function popup(elem) {
+	var w = window.innerWidth;
+	if (w < 700) {
+		popupHeight = 150;
+	} else if (w < 700) {
+		popupHeight = 200;
+	}
+	else {
+		popupHeight = 260;
+	}
+    var height = 0;
+    function frame() {
+        height += 10;
+        elem.style.height = height + 'px';
+        if (height == popupHeight) clearInterval(id);
+    }
+    var id = setInterval(frame, 10);
+}
+function popdown(elem) {
+    var height = popupHeight;
+    function frame() {
+        height -= 10
+        elem.style.height = height + 'px';
+        if (height == 0) clearInterval(id);
+    }
+    var id = setInterval(frame, 10);
+}
+
+
 ready(() => {
 	new fullpage('#fullpage', {
 		licenseKey: "OPEN-SOURCE-GPLV3-LICENSE",
@@ -39,19 +82,24 @@ ready(() => {
 		navigation: true,
 		navigationPosition: 'right',
 		verticalCentered: true,
-		anchors: ['', 'p2', 'p3'],
+		anchors: ['', '2', '3'],
 		afterLoad: function(origin, destination, direction) {
             const params = {
                 origin: origin,
                 destination: destination,
                 direction: direction
             };
+            const anchor = params.destination.anchor;
+            if (anchor === "") {
+            	addClass(_('#fp-nav'), 'none');
+			} else {
+				removeClass(_('#fp-nav'), 'none');
+			}
+
             const target = '#s' + destination.anchor + ' span';
             __(target).forEach(el => {
-//            	console.log(target);
             	addClass(el, 'hidden');
             	var fading = window.setInterval(() => {
-            		//console.log('DONE');
             		__(target).forEach(el2 => {
             			addClass(el2, 'none');
             		});
@@ -65,6 +113,21 @@ ready(() => {
 			});
         }
 	});
+
+	var open = false;
+	const slideButton = _('#footerSlideButton');
+
+	slideButton.onclick = function(e) {
+		const footer = _('#footerSlideContent');
+		if(open === false) {
+			popup(footer);
+			open = true;
+		} else {
+			popdown(footer);
+			open = false;
+		}
+	};
+
 });
 </script>
 {% endblock %}

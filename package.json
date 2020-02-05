@@ -1,6 +1,6 @@
 {
   "name": "supr",
-  "version": "1.0.0",
+  "version": "2.0.7",
   "description": "supr",
   "scripts": {
     "clean": "rm -rf out",
@@ -16,6 +16,6 @@
   "license": "MIT",
   "homepage": "https://supr.life",
   "dependencies": {
-    "spignite": "^2.0.6"
+    "spignite": "^2.0.7"
   }
 }
